@@ -1,0 +1,30 @@
+[2024-05-27T23:25:47.368+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_install_dbt_utils manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T23:25:47.375+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_install_dbt_utils manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T23:25:47.375+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T23:25:47.375+0000] {taskinstance.py:1284} INFO - Starting attempt 2 of 2
+[2024-05-27T23:25:47.375+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T23:25:47.388+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_install_dbt_utils> on 2024-05-27 21:49:08.726117+00:00
+[2024-05-27T23:25:47.392+0000] {standard_task_runner.py:55} INFO - Started process 16746 to run task
+[2024-05-27T23:25:47.395+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_install_dbt_utils', 'manual__2024-05-27T21:49:08.726117+00:00', '--job-id', '104', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmpf7qa5qia']
+[2024-05-27T23:25:47.396+0000] {standard_task_runner.py:83} INFO - Job 104: Subtask ti_install_dbt_utils
+[2024-05-27T23:25:47.449+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_install_dbt_utils manual__2024-05-27T21:49:08.726117+00:00 [running]> on host a64b6410e10e
+[2024-05-27T23:25:47.546+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_install_dbt_utils
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-27T21:49:08.726117+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-27T21:49:08.726117+00:00
+[2024-05-27T23:25:47.578+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-27T23:25:50.068+0000] {docker.py:354} INFO - [0m23:25:50  Running with dbt=1.5.11
+[2024-05-27T23:25:50.943+0000] {docker.py:354} INFO - [0m23:25:50  Installing dbt-labs/dbt_utils
+[2024-05-27T23:25:51.823+0000] {docker.py:354} INFO - [0m23:25:51  Installed from version 1.0.0
+[2024-05-27T23:25:51.823+0000] {docker.py:354} INFO - [0m23:25:51  Updated version available: 1.1.1
+[2024-05-27T23:25:51.824+0000] {docker.py:354} INFO - [0m23:25:51
+[2024-05-27T23:25:51.824+0000] {docker.py:354} INFO - [0m23:25:51  Updates available for packages: ['dbt-labs/dbt_utils']                 
+Update your versions in packages.yml, then run dbt deps
+[2024-05-27T23:25:53.093+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=franko_lookup_ingest, task_id=ti_install_dbt_utils, execution_date=20240527T214908, start_date=20240527T232547, end_date=20240527T232553
+[2024-05-27T23:25:53.121+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2024-05-27T23:25:53.143+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check

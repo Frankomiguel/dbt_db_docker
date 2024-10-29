@@ -1,0 +1,24 @@
+[2024-05-27T17:51:22.595+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_python.sleep_for_ manual__2024-05-25T02:02:40.608195+00:00 [queued]>
+[2024-05-27T17:51:22.606+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_python.sleep_for_ manual__2024-05-25T02:02:40.608195+00:00 [queued]>
+[2024-05-27T17:51:22.606+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T17:51:22.607+0000] {taskinstance.py:1284} INFO - Starting attempt 4 of 4
+[2024-05-27T17:51:22.607+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T17:51:22.631+0000] {taskinstance.py:1304} INFO - Executing <Task(PythonOperator): sleep_for_> on 2024-05-25 02:02:40.608195+00:00
+[2024-05-27T17:51:22.638+0000] {standard_task_runner.py:55} INFO - Started process 5392 to run task
+[2024-05-27T17:51:22.644+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_python', 'sleep_for_', 'manual__2024-05-25T02:02:40.608195+00:00', '--job-id', '35', '--raw', '--subdir', 'DAGS_FOLDER/example_dag.py', '--cfg-path', '/tmp/tmpoqrg2mt0']
+[2024-05-27T17:51:22.644+0000] {standard_task_runner.py:83} INFO - Job 35: Subtask sleep_for_
+[2024-05-27T17:51:22.704+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_python.sleep_for_ manual__2024-05-25T02:02:40.608195+00:00 [running]> on host b637b51b94ee
+[2024-05-27T17:51:22.777+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_python
+AIRFLOW_CTX_TASK_ID=sleep_for_
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-25T02:02:40.608195+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-25T02:02:40.608195+00:00
+[2024-05-27T17:51:22.778+0000] {logging_mixin.py:137} INFO - HELLLOOO
+[2024-05-27T17:51:22.778+0000] {python.py:177} INFO - Done. Returned value was: None
+[2024-05-27T17:51:22.787+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=franko_python, task_id=sleep_for_, execution_date=20240525T020240, start_date=20240527T175122, end_date=20240527T175122
+[2024-05-27T17:51:22.815+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2024-05-27T17:51:22.836+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check

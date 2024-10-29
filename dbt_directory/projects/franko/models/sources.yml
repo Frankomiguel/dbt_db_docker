@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: raw_data
+    database: my_db  
+    schema: dev  
+    tables:
+      - name: time_series_covid19_confirmed_global

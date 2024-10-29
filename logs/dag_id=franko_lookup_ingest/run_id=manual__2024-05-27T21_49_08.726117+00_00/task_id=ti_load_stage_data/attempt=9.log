@@ -1,0 +1,91 @@
+[2024-05-27T22:21:03.139+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_stage_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T22:21:03.152+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_stage_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T22:21:03.152+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T22:21:03.152+0000] {taskinstance.py:1284} INFO - Starting attempt 9 of 9
+[2024-05-27T22:21:03.153+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T22:21:03.171+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_load_stage_data> on 2024-05-27 21:49:08.726117+00:00
+[2024-05-27T22:21:03.178+0000] {standard_task_runner.py:55} INFO - Started process 11543 to run task
+[2024-05-27T22:21:03.182+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_load_stage_data', 'manual__2024-05-27T21:49:08.726117+00:00', '--job-id', '95', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmpm5565xs1']
+[2024-05-27T22:21:03.183+0000] {standard_task_runner.py:83} INFO - Job 95: Subtask ti_load_stage_data
+[2024-05-27T22:21:03.251+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_load_stage_data manual__2024-05-27T21:49:08.726117+00:00 [running]> on host a64b6410e10e
+[2024-05-27T22:21:03.336+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_load_stage_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-27T21:49:08.726117+00:00
+AIRFLOW_CTX_TRY_NUMBER=9
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-27T21:49:08.726117+00:00
+[2024-05-27T22:21:03.365+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-27T22:21:06.563+0000] {docker.py:354} INFO - [0m22:21:06  Running with dbt=1.5.11
+[2024-05-27T22:21:06.749+0000] {docker.py:354} INFO - [0m22:21:06  Registered adapter: postgres=1.5.11
+[2024-05-27T22:21:06.886+0000] {docker.py:354} INFO - [0m22:21:06  Found 3 models, 4 tests, 0 snapshots, 0 analyses, 310 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[2024-05-27T22:21:06.888+0000] {docker.py:354} INFO - [0m22:21:06
+[2024-05-27T22:21:06.969+0000] {docker.py:354} INFO - [0m22:21:06  Concurrency: 4 threads (target='dev')
+[2024-05-27T22:21:06.969+0000] {docker.py:354} INFO - [0m22:21:06
+[2024-05-27T22:21:06.973+0000] {docker.py:354} INFO - [0m22:21:06  1 of 1 START sql table model dev.silver_covid_geo .............................. [RUN]
+[2024-05-27T22:21:07.089+0000] {docker.py:354} INFO - [0m22:21:07  1 of 1 ERROR creating sql table model dev.silver_covid_geo ..................... [[31mERROR[0m in 0.11s]
+[2024-05-27T22:21:07.199+0000] {docker.py:354} INFO - [0m22:21:07
+[2024-05-27T22:21:07.200+0000] {docker.py:354} INFO - [0m22:21:07  Finished running 1 table model in 0 hours 0 minutes and 0.30 seconds (0.30s).
+[2024-05-27T22:21:07.214+0000] {docker.py:354} INFO - [0m22:21:07
+[2024-05-27T22:21:07.217+0000] {docker.py:354} INFO - [0m22:21:07  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-05-27T22:21:07.227+0000] {docker.py:354} INFO - [0m22:21:07
+[2024-05-27T22:21:07.229+0000] {docker.py:354} INFO - [0m22:21:07  [33mDatabase Error in model silver_covid_geo (models/silver/silver_covid_geo.sql)[0m
+[2024-05-27T22:21:07.230+0000] {docker.py:354} INFO - [0m22:21:07    syntax error at or near "as"
+[2024-05-27T22:21:07.232+0000] {docker.py:354} INFO - [0m22:21:07    LINE 1168: case when Province_State is null then ''  as Province_State ...
+[2024-05-27T22:21:07.234+0000] {docker.py:354} INFO - [0m22:21:07                                                         ^
+[2024-05-27T22:21:07.234+0000] {docker.py:354} INFO - [0m22:21:07    compiled Code at target/run/franko/models/silver/silver_covid_geo.sql
+[2024-05-27T22:21:07.236+0000] {docker.py:354} INFO - [0m22:21:07
+[2024-05-27T22:21:07.236+0000] {docker.py:354} INFO - [0m22:21:07  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2024-05-27T22:21:07.997+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 430, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 303, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 359, in _run_image_with_mounts
+    raise AirflowException(f"Docker container failed: {repr(result)} lines {joined_log_lines}")
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 1} lines [0m22:21:06  Running with dbt=1.5.11
+[0m22:21:06  Registered adapter: postgres=1.5.11
+[0m22:21:06  Found 3 models, 4 tests, 0 snapshots, 0 analyses, 310 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[0m22:21:06
+[0m22:21:06  Concurrency: 4 threads (target='dev')
+[0m22:21:06
+[0m22:21:06  1 of 1 START sql table model dev.silver_covid_geo .............................. [RUN]
+[0m22:21:07  1 of 1 ERROR creating sql table model dev.silver_covid_geo ..................... [[31mERROR[0m in 0.11s]
+[0m22:21:07
+[0m22:21:07  Finished running 1 table model in 0 hours 0 minutes and 0.30 seconds (0.30s).
+[0m22:21:07
+[0m22:21:07  [31mCompleted with 1 error and 0 warnings:[0m
+[0m22:21:07
+[0m22:21:07  [33mDatabase Error in model silver_covid_geo (models/silver/silver_covid_geo.sql)[0m
+[0m22:21:07    syntax error at or near "as"
+[0m22:21:07    LINE 1168: case when Province_State is null then ''  as Province_State ...
+[0m22:21:07                                                         ^
+[0m22:21:07    compiled Code at target/run/franko/models/silver/silver_covid_geo.sql
+[0m22:21:07
+[0m22:21:07  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2024-05-27T22:21:08.001+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=franko_lookup_ingest, task_id=ti_load_stage_data, execution_date=20240527T214908, start_date=20240527T222103, end_date=20240527T222108
+[2024-05-27T22:21:08.013+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 95 for task ti_load_stage_data (Docker container failed: {'StatusCode': 1} lines [0m22:21:06  Running with dbt=1.5.11
+[0m22:21:06  Registered adapter: postgres=1.5.11
+[0m22:21:06  Found 3 models, 4 tests, 0 snapshots, 0 analyses, 310 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[0m22:21:06
+[0m22:21:06  Concurrency: 4 threads (target='dev')
+[0m22:21:06
+[0m22:21:06  1 of 1 START sql table model dev.silver_covid_geo .............................. [RUN]
+[0m22:21:07  1 of 1 ERROR creating sql table model dev.silver_covid_geo ..................... [[31mERROR[0m in 0.11s]
+[0m22:21:07
+[0m22:21:07  Finished running 1 table model in 0 hours 0 minutes and 0.30 seconds (0.30s).
+[0m22:21:07
+[0m22:21:07  [31mCompleted with 1 error and 0 warnings:[0m
+[0m22:21:07
+[0m22:21:07  [33mDatabase Error in model silver_covid_geo (models/silver/silver_covid_geo.sql)[0m
+[0m22:21:07    syntax error at or near "as"
+[0m22:21:07    LINE 1168: case when Province_State is null then ''  as Province_State ...
+[0m22:21:07                                                         ^
+[0m22:21:07    compiled Code at target/run/franko/models/silver/silver_covid_geo.sql
+[0m22:21:07
+[0m22:21:07  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1; 11543)
+[2024-05-27T22:21:08.058+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2024-05-27T22:21:08.088+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

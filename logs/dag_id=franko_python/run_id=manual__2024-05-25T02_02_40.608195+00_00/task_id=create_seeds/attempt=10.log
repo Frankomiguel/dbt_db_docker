@@ -1,0 +1,43 @@
+[2024-05-25T06:00:25.541+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_python.create_seeds manual__2024-05-25T02:02:40.608195+00:00 [queued]>
+[2024-05-25T06:00:25.558+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_python.create_seeds manual__2024-05-25T02:02:40.608195+00:00 [queued]>
+[2024-05-25T06:00:25.558+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-25T06:00:25.559+0000] {taskinstance.py:1284} INFO - Starting attempt 10 of 10
+[2024-05-25T06:00:25.559+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-25T06:00:25.582+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): create_seeds> on 2024-05-25 02:02:40.608195+00:00
+[2024-05-25T06:00:25.589+0000] {standard_task_runner.py:55} INFO - Started process 816 to run task
+[2024-05-25T06:00:25.594+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_python', 'create_seeds', 'manual__2024-05-25T02:02:40.608195+00:00', '--job-id', '31', '--raw', '--subdir', 'DAGS_FOLDER/example_dag.py', '--cfg-path', '/tmp/tmp9f7z34q5']
+[2024-05-25T06:00:25.594+0000] {standard_task_runner.py:83} INFO - Job 31: Subtask create_seeds
+[2024-05-25T06:00:25.677+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_python.create_seeds manual__2024-05-25T02:02:40.608195+00:00 [running]> on host b637b51b94ee
+[2024-05-25T06:00:25.780+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_python
+AIRFLOW_CTX_TASK_ID=create_seeds
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-25T02:02:40.608195+00:00
+AIRFLOW_CTX_TRY_NUMBER=10
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-25T02:02:40.608195+00:00
+[2024-05-25T06:00:25.811+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-25T06:00:28.755+0000] {docker.py:354} INFO - [0m06:00:28  Running with dbt=1.5.11
+[2024-05-25T06:00:28.760+0000] {docker.py:354} INFO - [0m06:00:28  Encountered an error:
+Runtime Error
+  Could not find profile named 'luis'
+[2024-05-25T06:00:30.179+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 430, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 303, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 359, in _run_image_with_mounts
+    raise AirflowException(f"Docker container failed: {repr(result)} lines {joined_log_lines}")
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 2} lines [0m06:00:28  Running with dbt=1.5.11
+[0m06:00:28  Encountered an error:
+Runtime Error
+  Could not find profile named 'luis'
+[2024-05-25T06:00:30.184+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=franko_python, task_id=create_seeds, execution_date=20240525T020240, start_date=20240525T060025, end_date=20240525T060030
+[2024-05-25T06:00:30.202+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 31 for task create_seeds (Docker container failed: {'StatusCode': 2} lines [0m06:00:28  Running with dbt=1.5.11
+[0m06:00:28  Encountered an error:
+Runtime Error
+  Could not find profile named 'luis'; 816)
+[2024-05-25T06:00:30.217+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2024-05-25T06:00:30.241+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

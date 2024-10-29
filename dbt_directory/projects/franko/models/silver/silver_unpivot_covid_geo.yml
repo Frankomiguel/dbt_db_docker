@@ -1,0 +1,22 @@
+version: 2
+
+models:
+    - name: silver_unpivot_covid_geo
+      description: "Unpivot data for allow calculations"
+      
+      columns:
+          - name: transf_province_state
+            description: "state not null for realize groups operations"
+            tests:
+                - not_null  
+
+          - name: Country_Region
+            description: "Country for the covid values"
+            tests:
+                - not_null                  
+
+          - name: lat
+            description: "Latitude of the row"
+
+          - name: Long
+            description: "LaLogitude of the row"

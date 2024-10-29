@@ -1,0 +1,91 @@
+[2024-05-27T22:21:41.466+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_stage_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T22:21:41.479+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_stage_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T22:21:41.479+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T22:21:41.479+0000] {taskinstance.py:1284} INFO - Starting attempt 10 of 10
+[2024-05-27T22:21:41.479+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T22:21:41.496+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_load_stage_data> on 2024-05-27 21:49:08.726117+00:00
+[2024-05-27T22:21:41.502+0000] {standard_task_runner.py:55} INFO - Started process 11592 to run task
+[2024-05-27T22:21:41.506+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_load_stage_data', 'manual__2024-05-27T21:49:08.726117+00:00', '--job-id', '96', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmpftf3uoyf']
+[2024-05-27T22:21:41.506+0000] {standard_task_runner.py:83} INFO - Job 96: Subtask ti_load_stage_data
+[2024-05-27T22:21:41.577+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_load_stage_data manual__2024-05-27T21:49:08.726117+00:00 [running]> on host a64b6410e10e
+[2024-05-27T22:21:41.663+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_load_stage_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-27T21:49:08.726117+00:00
+AIRFLOW_CTX_TRY_NUMBER=10
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-27T21:49:08.726117+00:00
+[2024-05-27T22:21:41.693+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-27T22:21:46.165+0000] {docker.py:354} INFO - [0m22:21:46  Running with dbt=1.5.11
+[2024-05-27T22:21:46.385+0000] {docker.py:354} INFO - [0m22:21:46  Registered adapter: postgres=1.5.11
+[2024-05-27T22:21:46.583+0000] {docker.py:354} INFO - [0m22:21:46  Found 3 models, 4 tests, 0 snapshots, 0 analyses, 310 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[2024-05-27T22:21:46.586+0000] {docker.py:354} INFO - [0m22:21:46
+[2024-05-27T22:21:46.729+0000] {docker.py:354} INFO - [0m22:21:46  Concurrency: 4 threads (target='dev')
+[2024-05-27T22:21:46.729+0000] {docker.py:354} INFO - [0m22:21:46
+[2024-05-27T22:21:46.734+0000] {docker.py:354} INFO - [0m22:21:46  1 of 1 START sql table model dev.silver_covid_geo .............................. [RUN]
+[2024-05-27T22:21:46.864+0000] {docker.py:354} INFO - [0m22:21:46  1 of 1 ERROR creating sql table model dev.silver_covid_geo ..................... [[31mERROR[0m in 0.13s]
+[2024-05-27T22:21:46.952+0000] {docker.py:354} INFO - [0m22:21:46
+[2024-05-27T22:21:46.952+0000] {docker.py:354} INFO - [0m22:21:46  Finished running 1 table model in 0 hours 0 minutes and 0.36 seconds (0.36s).
+[2024-05-27T22:21:46.964+0000] {docker.py:354} INFO - [0m22:21:46
+[2024-05-27T22:21:46.965+0000] {docker.py:354} INFO - [0m22:21:46  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-05-27T22:21:46.965+0000] {docker.py:354} INFO - [0m22:21:46
+[2024-05-27T22:21:46.966+0000] {docker.py:354} INFO - [0m22:21:46  [33mDatabase Error in model silver_covid_geo (models/silver/silver_covid_geo.sql)[0m
+[2024-05-27T22:21:46.966+0000] {docker.py:354} INFO - [0m22:21:46    syntax error at or near "exclude"
+[2024-05-27T22:21:46.967+0000] {docker.py:354} INFO - [0m22:21:46    LINE 1169: exclude(Province_State)
+[2024-05-27T22:21:46.967+0000] {docker.py:354} INFO - [0m22:21:46               ^
+[2024-05-27T22:21:46.968+0000] {docker.py:354} INFO - [0m22:21:46    compiled Code at target/run/franko/models/silver/silver_covid_geo.sql
+[2024-05-27T22:21:46.968+0000] {docker.py:354} INFO - [0m22:21:46
+[2024-05-27T22:21:46.969+0000] {docker.py:354} INFO - [0m22:21:46  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2024-05-27T22:21:47.949+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 430, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 303, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 359, in _run_image_with_mounts
+    raise AirflowException(f"Docker container failed: {repr(result)} lines {joined_log_lines}")
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 1} lines [0m22:21:46  Running with dbt=1.5.11
+[0m22:21:46  Registered adapter: postgres=1.5.11
+[0m22:21:46  Found 3 models, 4 tests, 0 snapshots, 0 analyses, 310 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[0m22:21:46
+[0m22:21:46  Concurrency: 4 threads (target='dev')
+[0m22:21:46
+[0m22:21:46  1 of 1 START sql table model dev.silver_covid_geo .............................. [RUN]
+[0m22:21:46  1 of 1 ERROR creating sql table model dev.silver_covid_geo ..................... [[31mERROR[0m in 0.13s]
+[0m22:21:46
+[0m22:21:46  Finished running 1 table model in 0 hours 0 minutes and 0.36 seconds (0.36s).
+[0m22:21:46
+[0m22:21:46  [31mCompleted with 1 error and 0 warnings:[0m
+[0m22:21:46
+[0m22:21:46  [33mDatabase Error in model silver_covid_geo (models/silver/silver_covid_geo.sql)[0m
+[0m22:21:46    syntax error at or near "exclude"
+[0m22:21:46    LINE 1169: exclude(Province_State)
+[0m22:21:46               ^
+[0m22:21:46    compiled Code at target/run/franko/models/silver/silver_covid_geo.sql
+[0m22:21:46
+[0m22:21:46  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2024-05-27T22:21:47.955+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=franko_lookup_ingest, task_id=ti_load_stage_data, execution_date=20240527T214908, start_date=20240527T222141, end_date=20240527T222147
+[2024-05-27T22:21:47.970+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 96 for task ti_load_stage_data (Docker container failed: {'StatusCode': 1} lines [0m22:21:46  Running with dbt=1.5.11
+[0m22:21:46  Registered adapter: postgres=1.5.11
+[0m22:21:46  Found 3 models, 4 tests, 0 snapshots, 0 analyses, 310 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[0m22:21:46
+[0m22:21:46  Concurrency: 4 threads (target='dev')
+[0m22:21:46
+[0m22:21:46  1 of 1 START sql table model dev.silver_covid_geo .............................. [RUN]
+[0m22:21:46  1 of 1 ERROR creating sql table model dev.silver_covid_geo ..................... [[31mERROR[0m in 0.13s]
+[0m22:21:46
+[0m22:21:46  Finished running 1 table model in 0 hours 0 minutes and 0.36 seconds (0.36s).
+[0m22:21:46
+[0m22:21:46  [31mCompleted with 1 error and 0 warnings:[0m
+[0m22:21:46
+[0m22:21:46  [33mDatabase Error in model silver_covid_geo (models/silver/silver_covid_geo.sql)[0m
+[0m22:21:46    syntax error at or near "exclude"
+[0m22:21:46    LINE 1169: exclude(Province_State)
+[0m22:21:46               ^
+[0m22:21:46    compiled Code at target/run/franko/models/silver/silver_covid_geo.sql
+[0m22:21:46
+[0m22:21:46  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1; 11592)
+[2024-05-27T22:21:47.996+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2024-05-27T22:21:48.009+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

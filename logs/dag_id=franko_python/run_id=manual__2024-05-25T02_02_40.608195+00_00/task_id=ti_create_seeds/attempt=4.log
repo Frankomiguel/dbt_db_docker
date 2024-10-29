@@ -1,0 +1,37 @@
+[2024-05-27T20:58:15.496+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_python.ti_create_seeds manual__2024-05-25T02:02:40.608195+00:00 [queued]>
+[2024-05-27T20:58:15.508+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_python.ti_create_seeds manual__2024-05-25T02:02:40.608195+00:00 [queued]>
+[2024-05-27T20:58:15.509+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T20:58:15.509+0000] {taskinstance.py:1284} INFO - Starting attempt 4 of 4
+[2024-05-27T20:58:15.509+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T20:58:15.527+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_create_seeds> on 2024-05-25 02:02:40.608195+00:00
+[2024-05-27T20:58:15.533+0000] {standard_task_runner.py:55} INFO - Started process 4927 to run task
+[2024-05-27T20:58:15.536+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_python', 'ti_create_seeds', 'manual__2024-05-25T02:02:40.608195+00:00', '--job-id', '81', '--raw', '--subdir', 'DAGS_FOLDER/example_dag.py', '--cfg-path', '/tmp/tmpufumoxob']
+[2024-05-27T20:58:15.537+0000] {standard_task_runner.py:83} INFO - Job 81: Subtask ti_create_seeds
+[2024-05-27T20:58:15.602+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_python.ti_create_seeds manual__2024-05-25T02:02:40.608195+00:00 [running]> on host a64b6410e10e
+[2024-05-27T20:58:15.684+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_python
+AIRFLOW_CTX_TASK_ID=ti_create_seeds
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-25T02:02:40.608195+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-25T02:02:40.608195+00:00
+[2024-05-27T20:58:15.704+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-27T20:58:17.847+0000] {docker.py:354} INFO - [0m20:58:17  Running with dbt=1.5.11
+[2024-05-27T20:58:17.954+0000] {docker.py:354} INFO - [0m20:58:17  Registered adapter: postgres=1.5.11
+[2024-05-27T20:58:17.998+0000] {docker.py:354} INFO - [0m20:58:17  Found 2 models, 4 tests, 0 snapshots, 0 analyses, 310 macros, 0 operations, 1 seed file, 0 sources, 0 exposures, 0 metrics, 0 groups
+[2024-05-27T20:58:18.000+0000] {docker.py:354} INFO - [0m20:58:17
+[2024-05-27T20:58:18.064+0000] {docker.py:354} INFO - [0m20:58:18  Concurrency: 4 threads (target='dev')
+[2024-05-27T20:58:18.064+0000] {docker.py:354} INFO - [0m20:58:18
+[2024-05-27T20:58:18.067+0000] {docker.py:354} INFO - [0m20:58:18  1 of 1 START seed file dev.time_series_covid19_confirmed_global ................ [RUN]
+[2024-05-27T20:59:44.035+0000] {docker.py:354} INFO - [0m20:59:44  1 of 1 OK loaded seed file dev.time_series_covid19_confirmed_global ............ [[32mINSERT 289[0m in 85.97s]
+[2024-05-27T20:59:44.156+0000] {docker.py:354} INFO - [0m20:59:44
+[2024-05-27T20:59:44.157+0000] {docker.py:354} INFO - [0m20:59:44  Finished running 1 seed in 0 hours 1 minutes and 26.16 seconds (86.16s).
+[2024-05-27T20:59:44.165+0000] {docker.py:354} INFO - [0m20:59:44
+[2024-05-27T20:59:44.165+0000] {docker.py:354} INFO - [0m20:59:44  [32mCompleted successfully[0m
+[2024-05-27T20:59:44.165+0000] {docker.py:354} INFO - [0m20:59:44
+[2024-05-27T20:59:44.166+0000] {docker.py:354} INFO - [0m20:59:44  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2024-05-27T20:59:45.217+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=franko_python, task_id=ti_create_seeds, execution_date=20240525T020240, start_date=20240527T205815, end_date=20240527T205945
+[2024-05-27T20:59:45.250+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2024-05-27T20:59:45.266+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

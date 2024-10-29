@@ -1,0 +1,27 @@
+[2024-05-27T23:36:08.592+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_target_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T23:36:08.604+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_target_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T23:36:08.604+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T23:36:08.604+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2024-05-27T23:36:08.604+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T23:36:08.620+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_load_target_data> on 2024-05-27 21:49:08.726117+00:00
+[2024-05-27T23:36:08.626+0000] {standard_task_runner.py:55} INFO - Started process 17586 to run task
+[2024-05-27T23:36:08.630+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_load_target_data', 'manual__2024-05-27T21:49:08.726117+00:00', '--job-id', '109', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmplmcxbub3']
+[2024-05-27T23:36:08.631+0000] {standard_task_runner.py:83} INFO - Job 109: Subtask ti_load_target_data
+[2024-05-27T23:36:08.701+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_load_target_data manual__2024-05-27T21:49:08.726117+00:00 [running]> on host a64b6410e10e
+[2024-05-27T23:36:08.792+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_load_target_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-27T21:49:08.726117+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-27T21:49:08.726117+00:00
+[2024-05-27T23:36:08.823+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-27T23:36:12.354+0000] {docker.py:354} INFO - [0m23:36:12  Running with dbt=1.5.11
+[2024-05-27T23:36:12.562+0000] {docker.py:354} INFO - [0m23:36:12  Registered adapter: postgres=1.5.11
+[2024-05-27T23:36:12.698+0000] {docker.py:354} INFO - [0m23:36:12  Found 5 models, 4 tests, 0 snapshots, 0 analyses, 422 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[2024-05-27T23:36:12.700+0000] {docker.py:354} INFO - [0m23:36:12
+[2024-05-27T23:36:12.791+0000] {docker.py:354} INFO - [0m23:36:12  Concurrency: 4 threads (target='dev')
+[2024-05-27T23:36:12.791+0000] {docker.py:354} INFO - [0m23:36:12
+[2024-05-27T23:36:12.795+0000] {docker.py:354} INFO - [0m23:36:12  1 of 1 START sql table model dev.golden_data ................................... [RUN]

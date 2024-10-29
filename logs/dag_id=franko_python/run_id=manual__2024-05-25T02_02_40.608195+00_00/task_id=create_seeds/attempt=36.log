@@ -1,0 +1,39 @@
+[2024-05-27T19:58:46.456+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_python.create_seeds manual__2024-05-25T02:02:40.608195+00:00 [queued]>
+[2024-05-27T19:58:46.465+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_python.create_seeds manual__2024-05-25T02:02:40.608195+00:00 [queued]>
+[2024-05-27T19:58:46.466+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T19:58:46.466+0000] {taskinstance.py:1284} INFO - Starting attempt 36 of 36
+[2024-05-27T19:58:46.466+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T19:58:46.478+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): create_seeds> on 2024-05-25 02:02:40.608195+00:00
+[2024-05-27T19:58:46.483+0000] {standard_task_runner.py:55} INFO - Started process 75 to run task
+[2024-05-27T19:58:46.485+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_python', 'create_seeds', 'manual__2024-05-25T02:02:40.608195+00:00', '--job-id', '76', '--raw', '--subdir', 'DAGS_FOLDER/example_dag.py', '--cfg-path', '/tmp/tmpe5r72oxx']
+[2024-05-27T19:58:46.485+0000] {standard_task_runner.py:83} INFO - Job 76: Subtask create_seeds
+[2024-05-27T19:58:46.533+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_python.create_seeds manual__2024-05-25T02:02:40.608195+00:00 [running]> on host a64b6410e10e
+[2024-05-27T19:58:46.591+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_python
+AIRFLOW_CTX_TASK_ID=create_seeds
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-25T02:02:40.608195+00:00
+AIRFLOW_CTX_TRY_NUMBER=36
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-25T02:02:40.608195+00:00
+[2024-05-27T19:58:46.606+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-27T19:58:48.631+0000] {docker.py:354} INFO - [0m19:58:48  Running with dbt=1.5.11
+[2024-05-27T19:58:48.884+0000] {docker.py:354} INFO - [0m19:58:48  Registered adapter: postgres=1.5.11
+[2024-05-27T19:58:48.987+0000] {docker.py:354} INFO - [0m19:58:48  Found 2 models, 4 tests, 0 snapshots, 0 analyses, 310 macros, 0 operations, 0 seed files, 0 sources, 0 exposures, 0 metrics, 0 groups
+[2024-05-27T19:58:48.989+0000] {docker.py:354} INFO - [0m19:58:48
+[2024-05-27T19:58:49.117+0000] {docker.py:354} INFO - [0m19:58:49  Concurrency: 4 threads (target='dev')
+[2024-05-27T19:58:49.118+0000] {docker.py:354} INFO - [0m19:58:49
+[2024-05-27T19:58:49.122+0000] {docker.py:354} INFO - [0m19:58:49  1 of 2 START sql table model dev.my_first_dbt_model ............................ [RUN]
+[2024-05-27T19:58:49.373+0000] {docker.py:354} INFO - [0m19:58:49  1 of 2 OK created sql table model dev.my_first_dbt_model ....................... [[32mSELECT 2[0m in 0.25s]
+[2024-05-27T19:58:49.376+0000] {docker.py:354} INFO - [0m19:58:49  2 of 2 START sql view model dev.my_second_dbt_model ............................ [RUN]
+[2024-05-27T19:58:49.464+0000] {docker.py:354} INFO - [0m19:58:49  2 of 2 OK created sql view model dev.my_second_dbt_model ....................... [[32mCREATE VIEW[0m in 0.09s]
+[2024-05-27T19:58:49.549+0000] {docker.py:354} INFO - [0m19:58:49
+[2024-05-27T19:58:49.551+0000] {docker.py:354} INFO - [0m19:58:49  Finished running 1 table model, 1 view model in 0 hours 0 minutes and 0.56 seconds (0.56s).
+[2024-05-27T19:58:49.582+0000] {docker.py:354} INFO - [0m19:58:49
+[2024-05-27T19:58:49.584+0000] {docker.py:354} INFO - [0m19:58:49  [32mCompleted successfully[0m
+[2024-05-27T19:58:49.586+0000] {docker.py:354} INFO - [0m19:58:49
+[2024-05-27T19:58:49.588+0000] {docker.py:354} INFO - [0m19:58:49  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[2024-05-27T19:58:50.752+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=franko_python, task_id=create_seeds, execution_date=20240525T020240, start_date=20240527T195846, end_date=20240527T195850
+[2024-05-27T19:58:50.794+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2024-05-27T19:58:50.836+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

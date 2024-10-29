@@ -1,0 +1,97 @@
+[2024-05-28T02:10:09.943+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_target_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-28T02:10:09.955+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_target_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-28T02:10:09.956+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-28T02:10:09.956+0000] {taskinstance.py:1284} INFO - Starting attempt 14 of 14
+[2024-05-28T02:10:09.956+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-28T02:10:09.974+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_load_target_data> on 2024-05-27 21:49:08.726117+00:00
+[2024-05-28T02:10:09.979+0000] {standard_task_runner.py:55} INFO - Started process 6391 to run task
+[2024-05-28T02:10:09.983+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_load_target_data', 'manual__2024-05-27T21:49:08.726117+00:00', '--job-id', '190', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmp2jt566j2']
+[2024-05-28T02:10:09.983+0000] {standard_task_runner.py:83} INFO - Job 190: Subtask ti_load_target_data
+[2024-05-28T02:10:10.076+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_load_target_data manual__2024-05-27T21:49:08.726117+00:00 [running]> on host a64b6410e10e
+[2024-05-28T02:10:10.209+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_load_target_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-27T21:49:08.726117+00:00
+AIRFLOW_CTX_TRY_NUMBER=14
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-27T21:49:08.726117+00:00
+[2024-05-28T02:10:10.232+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-28T02:10:12.543+0000] {docker.py:354} INFO - [0m02:10:12  Running with dbt=1.5.11
+[2024-05-28T02:10:12.661+0000] {docker.py:354} INFO - [0m02:10:12  Registered adapter: postgres=1.5.11
+[2024-05-28T02:10:12.776+0000] {docker.py:354} INFO - [0m02:10:12  Found 6 models, 4 tests, 0 snapshots, 0 analyses, 422 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[2024-05-28T02:10:12.778+0000] {docker.py:354} INFO - [0m02:10:12
+[2024-05-28T02:10:12.848+0000] {docker.py:354} INFO - [0m02:10:12  Concurrency: 4 threads (target='dev')
+[2024-05-28T02:10:12.848+0000] {docker.py:354} INFO - [0m02:10:12
+[2024-05-28T02:10:12.851+0000] {docker.py:354} INFO - [0m02:10:12  1 of 2 START sql table model dev.golden_data ................................... [RUN]
+[2024-05-28T02:10:19.808+0000] {docker.py:354} INFO - [0m02:10:19  1 of 2 OK created sql table model dev.golden_data .............................. [[32mSELECT 323469[0m in 6.96s]
+[2024-05-28T02:10:19.811+0000] {docker.py:354} INFO - [0m02:10:19  2 of 2 START sql table model dev.golden_mart_data .............................. [RUN]
+[2024-05-28T02:10:19.849+0000] {docker.py:354} INFO - [0m02:10:19  2 of 2 ERROR creating sql table model dev.golden_mart_data ..................... [[31mERROR[0m in 0.04s]
+[2024-05-28T02:10:19.882+0000] {docker.py:354} INFO - [0m02:10:19
+[2024-05-28T02:10:19.883+0000] {docker.py:354} INFO - [0m02:10:19  Finished running 2 table models in 0 hours 0 minutes and 7.10 seconds (7.10s).
+[2024-05-28T02:10:19.902+0000] {docker.py:354} INFO - [0m02:10:19
+[2024-05-28T02:10:19.902+0000] {docker.py:354} INFO - [0m02:10:19  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-05-28T02:10:19.903+0000] {docker.py:354} INFO - [0m02:10:19
+[2024-05-28T02:10:19.904+0000] {docker.py:354} INFO - [0m02:10:19  [33mDatabase Error in model golden_mart_data (models/golden/golden_mart_data.sql)[0m
+[2024-05-28T02:10:19.904+0000] {docker.py:354} INFO - [0m02:10:19    column "golden_data.transf_province_state" must appear in the GROUP BY clause or be used in an aggregate function
+[2024-05-28T02:10:19.905+0000] {docker.py:354} INFO - [0m02:10:19    LINE 14:     transf_province_state ,
+[2024-05-28T02:10:19.905+0000] {docker.py:354} INFO - [0m02:10:19                 ^
+[2024-05-28T02:10:19.906+0000] {docker.py:354} INFO - [0m02:10:19    compiled Code at target/run/franko/models/golden/golden_mart_data.sql
+[2024-05-28T02:10:19.906+0000] {docker.py:354} INFO - [0m02:10:19
+[2024-05-28T02:10:19.907+0000] {docker.py:354} INFO - [0m02:10:19  Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[2024-05-28T02:10:20.812+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 430, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 303, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 359, in _run_image_with_mounts
+    raise AirflowException(f"Docker container failed: {repr(result)} lines {joined_log_lines}")
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 1} lines [0m02:10:12  Running with dbt=1.5.11
+[0m02:10:12  Registered adapter: postgres=1.5.11
+[0m02:10:12  Found 6 models, 4 tests, 0 snapshots, 0 analyses, 422 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[0m02:10:12
+[0m02:10:12  Concurrency: 4 threads (target='dev')
+[0m02:10:12
+[0m02:10:12  1 of 2 START sql table model dev.golden_data ................................... [RUN]
+[0m02:10:19  1 of 2 OK created sql table model dev.golden_data .............................. [[32mSELECT 323469[0m in 6.96s]
+[0m02:10:19  2 of 2 START sql table model dev.golden_mart_data .............................. [RUN]
+[0m02:10:19  2 of 2 ERROR creating sql table model dev.golden_mart_data ..................... [[31mERROR[0m in 0.04s]
+[0m02:10:19
+[0m02:10:19  Finished running 2 table models in 0 hours 0 minutes and 7.10 seconds (7.10s).
+[0m02:10:19
+[0m02:10:19  [31mCompleted with 1 error and 0 warnings:[0m
+[0m02:10:19
+[0m02:10:19  [33mDatabase Error in model golden_mart_data (models/golden/golden_mart_data.sql)[0m
+[0m02:10:19    column "golden_data.transf_province_state" must appear in the GROUP BY clause or be used in an aggregate function
+[0m02:10:19    LINE 14:     transf_province_state ,
+[0m02:10:19                 ^
+[0m02:10:19    compiled Code at target/run/franko/models/golden/golden_mart_data.sql
+[0m02:10:19
+[0m02:10:19  Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2
+[2024-05-28T02:10:20.819+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=franko_lookup_ingest, task_id=ti_load_target_data, execution_date=20240527T214908, start_date=20240528T021009, end_date=20240528T021020
+[2024-05-28T02:10:20.843+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 190 for task ti_load_target_data (Docker container failed: {'StatusCode': 1} lines [0m02:10:12  Running with dbt=1.5.11
+[0m02:10:12  Registered adapter: postgres=1.5.11
+[0m02:10:12  Found 6 models, 4 tests, 0 snapshots, 0 analyses, 422 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[0m02:10:12
+[0m02:10:12  Concurrency: 4 threads (target='dev')
+[0m02:10:12
+[0m02:10:12  1 of 2 START sql table model dev.golden_data ................................... [RUN]
+[0m02:10:19  1 of 2 OK created sql table model dev.golden_data .............................. [[32mSELECT 323469[0m in 6.96s]
+[0m02:10:19  2 of 2 START sql table model dev.golden_mart_data .............................. [RUN]
+[0m02:10:19  2 of 2 ERROR creating sql table model dev.golden_mart_data ..................... [[31mERROR[0m in 0.04s]
+[0m02:10:19
+[0m02:10:19  Finished running 2 table models in 0 hours 0 minutes and 7.10 seconds (7.10s).
+[0m02:10:19
+[0m02:10:19  [31mCompleted with 1 error and 0 warnings:[0m
+[0m02:10:19
+[0m02:10:19  [33mDatabase Error in model golden_mart_data (models/golden/golden_mart_data.sql)[0m
+[0m02:10:19    column "golden_data.transf_province_state" must appear in the GROUP BY clause or be used in an aggregate function
+[0m02:10:19    LINE 14:     transf_province_state ,
+[0m02:10:19                 ^
+[0m02:10:19    compiled Code at target/run/franko/models/golden/golden_mart_data.sql
+[0m02:10:19
+[0m02:10:19  Done. PASS=1 WARN=0 ERROR=1 SKIP=0 TOTAL=2; 6391)
+[2024-05-28T02:10:20.891+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2024-05-28T02:10:20.912+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

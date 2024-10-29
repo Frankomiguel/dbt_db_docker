@@ -1,0 +1,37 @@
+[2024-05-27T22:23:20.760+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_stage_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T22:23:20.774+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_stage_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T22:23:20.774+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T22:23:20.775+0000] {taskinstance.py:1284} INFO - Starting attempt 11 of 11
+[2024-05-27T22:23:20.775+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T22:23:20.802+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_load_stage_data> on 2024-05-27 21:49:08.726117+00:00
+[2024-05-27T22:23:20.809+0000] {standard_task_runner.py:55} INFO - Started process 11730 to run task
+[2024-05-27T22:23:20.812+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_load_stage_data', 'manual__2024-05-27T21:49:08.726117+00:00', '--job-id', '97', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmpz9_687z0']
+[2024-05-27T22:23:20.813+0000] {standard_task_runner.py:83} INFO - Job 97: Subtask ti_load_stage_data
+[2024-05-27T22:23:20.894+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_load_stage_data manual__2024-05-27T21:49:08.726117+00:00 [running]> on host a64b6410e10e
+[2024-05-27T22:23:21.026+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_load_stage_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-27T21:49:08.726117+00:00
+AIRFLOW_CTX_TRY_NUMBER=11
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-27T21:49:08.726117+00:00
+[2024-05-27T22:23:21.060+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-27T22:23:24.149+0000] {docker.py:354} INFO - [0m22:23:24  Running with dbt=1.5.11
+[2024-05-27T22:23:24.285+0000] {docker.py:354} INFO - [0m22:23:24  Registered adapter: postgres=1.5.11
+[2024-05-27T22:23:24.387+0000] {docker.py:354} INFO - [0m22:23:24  Found 3 models, 4 tests, 0 snapshots, 0 analyses, 310 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[2024-05-27T22:23:24.389+0000] {docker.py:354} INFO - [0m22:23:24
+[2024-05-27T22:23:24.460+0000] {docker.py:354} INFO - [0m22:23:24  Concurrency: 4 threads (target='dev')
+[2024-05-27T22:23:24.461+0000] {docker.py:354} INFO - [0m22:23:24
+[2024-05-27T22:23:24.463+0000] {docker.py:354} INFO - [0m22:23:24  1 of 1 START sql table model dev.silver_covid_geo .............................. [RUN]
+[2024-05-27T22:23:24.656+0000] {docker.py:354} INFO - [0m22:23:24  1 of 1 OK created sql table model dev.silver_covid_geo ......................... [[32mSELECT 283[0m in 0.19s]
+[2024-05-27T22:23:24.671+0000] {docker.py:354} INFO - [0m22:23:24
+[2024-05-27T22:23:24.671+0000] {docker.py:354} INFO - [0m22:23:24  Finished running 1 table model in 0 hours 0 minutes and 0.28 seconds (0.28s).
+[2024-05-27T22:23:24.680+0000] {docker.py:354} INFO - [0m22:23:24
+[2024-05-27T22:23:24.680+0000] {docker.py:354} INFO - [0m22:23:24  [32mCompleted successfully[0m
+[2024-05-27T22:23:24.680+0000] {docker.py:354} INFO - [0m22:23:24
+[2024-05-27T22:23:24.680+0000] {docker.py:354} INFO - [0m22:23:24  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2024-05-27T22:23:25.512+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=franko_lookup_ingest, task_id=ti_load_stage_data, execution_date=20240527T214908, start_date=20240527T222320, end_date=20240527T222325
+[2024-05-27T22:23:25.557+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2024-05-27T22:23:25.582+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

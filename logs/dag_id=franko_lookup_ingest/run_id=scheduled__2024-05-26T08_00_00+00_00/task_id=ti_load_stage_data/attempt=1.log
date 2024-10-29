@@ -1,0 +1,39 @@
+[2024-05-28T03:10:53.501+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_stage_data scheduled__2024-05-26T08:00:00+00:00 [queued]>
+[2024-05-28T03:10:53.512+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_stage_data scheduled__2024-05-26T08:00:00+00:00 [queued]>
+[2024-05-28T03:10:53.512+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-28T03:10:53.512+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2024-05-28T03:10:53.512+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-28T03:10:53.527+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_load_stage_data> on 2024-05-26 08:00:00+00:00
+[2024-05-28T03:10:53.532+0000] {standard_task_runner.py:55} INFO - Started process 852 to run task
+[2024-05-28T03:10:53.535+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_load_stage_data', 'scheduled__2024-05-26T08:00:00+00:00', '--job-id', '278', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmpk3p99zbu']
+[2024-05-28T03:10:53.536+0000] {standard_task_runner.py:83} INFO - Job 278: Subtask ti_load_stage_data
+[2024-05-28T03:10:53.602+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_load_stage_data scheduled__2024-05-26T08:00:00+00:00 [running]> on host a64b6410e10e
+[2024-05-28T03:10:53.711+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_load_stage_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-26T08:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-05-26T08:00:00+00:00
+[2024-05-28T03:10:53.735+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-28T03:10:56.315+0000] {docker.py:354} INFO - [0m03:10:56  Running with dbt=1.5.11
+[2024-05-28T03:10:56.483+0000] {docker.py:354} INFO - [0m03:10:56  Registered adapter: postgres=1.5.11
+[2024-05-28T03:10:56.640+0000] {docker.py:354} INFO - [0m03:10:56  Found 6 models, 6 tests, 0 snapshots, 0 analyses, 422 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[2024-05-28T03:10:56.644+0000] {docker.py:354} INFO - [0m03:10:56
+[2024-05-28T03:10:56.766+0000] {docker.py:354} INFO - [0m03:10:56  Concurrency: 4 threads (target='dev')
+[2024-05-28T03:10:56.766+0000] {docker.py:354} INFO - [0m03:10:56
+[2024-05-28T03:10:56.770+0000] {docker.py:354} INFO - [0m03:10:56  1 of 2 START sql table model dev.silver_covid_geo .............................. [RUN]
+[2024-05-28T03:10:57.334+0000] {docker.py:354} INFO - [0m03:10:57  1 of 2 OK created sql table model dev.silver_covid_geo ......................... [[32mSELECT 283[0m in 0.56s]
+[2024-05-28T03:10:57.338+0000] {docker.py:354} INFO - [0m03:10:57  2 of 2 START sql view model dev.silver_unpivot_covid_geo ....................... [RUN]
+[2024-05-28T03:10:59.739+0000] {docker.py:354} INFO - [0m03:10:59  2 of 2 OK created sql view model dev.silver_unpivot_covid_geo .................. [[32mCREATE VIEW[0m in 2.40s]
+[2024-05-28T03:10:59.827+0000] {docker.py:354} INFO - [0m03:10:59
+[2024-05-28T03:10:59.827+0000] {docker.py:354} INFO - [0m03:10:59  Finished running 1 table model, 1 view model in 0 hours 0 minutes and 3.18 seconds (3.18s).
+[2024-05-28T03:10:59.841+0000] {docker.py:354} INFO - [0m03:10:59
+[2024-05-28T03:10:59.842+0000] {docker.py:354} INFO - [0m03:10:59  [32mCompleted successfully[0m
+[2024-05-28T03:10:59.842+0000] {docker.py:354} INFO - [0m03:10:59
+[2024-05-28T03:10:59.842+0000] {docker.py:354} INFO - [0m03:10:59  Done. PASS=2 WARN=0 ERROR=0 SKIP=0 TOTAL=2
+[2024-05-28T03:11:00.867+0000] {taskinstance.py:1327} INFO - Marking task as SUCCESS. dag_id=franko_lookup_ingest, task_id=ti_load_stage_data, execution_date=20240526T080000, start_date=20240528T031053, end_date=20240528T031100
+[2024-05-28T03:11:00.933+0000] {local_task_job.py:159} INFO - Task exited with return code 0
+[2024-05-28T03:11:00.965+0000] {taskinstance.py:2582} INFO - 1 downstream tasks scheduled from follow-on schedule check

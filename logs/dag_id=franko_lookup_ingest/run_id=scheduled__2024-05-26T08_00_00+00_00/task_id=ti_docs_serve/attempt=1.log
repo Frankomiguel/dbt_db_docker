@@ -1,0 +1,35 @@
+[2024-05-28T03:18:18.695+0000] {taskinstance.py:1081} INFO - Dependencies not met for <TaskInstance: franko_lookup_ingest.ti_docs_serve scheduled__2024-05-26T08:00:00+00:00 [queued]>, dependency 'Trigger Rule' FAILED: Task's trigger rule 'all_success' requires all upstream tasks to have succeeded, but found 1 non-success(es). upstream_states=_UpstreamTIStates(success=0, skipped=0, failed=0, upstream_failed=0, removed=0, done=0), upstream_task_ids={'ti_docs_generate'}
+[2024-05-28T03:18:18.697+0000] {local_task_job.py:98} INFO - Task is not able to be run
+[2024-05-28T03:18:35.835+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_docs_serve scheduled__2024-05-26T08:00:00+00:00 [queued]>
+[2024-05-28T03:18:35.856+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_docs_serve scheduled__2024-05-26T08:00:00+00:00 [queued]>
+[2024-05-28T03:18:35.856+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-28T03:18:35.856+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2024-05-28T03:18:35.856+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-28T03:18:35.881+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_docs_serve> on 2024-05-26 08:00:00+00:00
+[2024-05-28T03:18:35.890+0000] {standard_task_runner.py:55} INFO - Started process 1467 to run task
+[2024-05-28T03:18:35.894+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_docs_serve', 'scheduled__2024-05-26T08:00:00+00:00', '--job-id', '285', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmp_c5lfum4']
+[2024-05-28T03:18:35.895+0000] {standard_task_runner.py:83} INFO - Job 285: Subtask ti_docs_serve
+[2024-05-28T03:18:35.991+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_docs_serve scheduled__2024-05-26T08:00:00+00:00 [running]> on host a64b6410e10e
+[2024-05-28T03:18:36.099+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_docs_serve
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-26T08:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-05-26T08:00:00+00:00
+[2024-05-28T03:18:36.127+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-28T03:18:40.462+0000] {docker.py:354} INFO - [0m03:18:40  Running with dbt=1.5.11
+[2024-05-28T03:18:40.694+0000] {docker.py:354} INFO - Serving docs at 8085
+To access from your browser, navigate to: http://localhost:8085
+
+
+
+Press Ctrl+C to exit.
+[2024-05-28T03:32:50.741+0000] {local_task_job.py:224} WARNING - State of this instance has been externally set to success. Terminating instance.
+[2024-05-28T03:32:50.745+0000] {process_utils.py:133} INFO - Sending Signals.SIGTERM to group 1467. PIDs of all processes in the group: [1467]
+[2024-05-28T03:32:50.745+0000] {process_utils.py:84} INFO - Sending the signal Signals.SIGTERM to group 1467
+[2024-05-28T03:32:50.745+0000] {taskinstance.py:1483} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-05-28T03:32:50.746+0000] {docker.py:456} INFO - Stopping docker container
+[2024-05-28T03:33:00.863+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=1467, status='terminated', exitcode=0, started='03:18:34') (1467) terminated with exit code 0

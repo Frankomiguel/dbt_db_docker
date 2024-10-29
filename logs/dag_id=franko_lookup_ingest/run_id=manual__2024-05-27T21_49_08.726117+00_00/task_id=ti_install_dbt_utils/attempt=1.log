@@ -1,0 +1,49 @@
+[2024-05-27T23:24:37.757+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_install_dbt_utils manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T23:24:37.765+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_install_dbt_utils manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T23:24:37.765+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T23:24:37.765+0000] {taskinstance.py:1284} INFO - Starting attempt 1 of 1
+[2024-05-27T23:24:37.765+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T23:24:37.778+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_install_dbt_utils> on 2024-05-27 21:49:08.726117+00:00
+[2024-05-27T23:24:37.783+0000] {standard_task_runner.py:55} INFO - Started process 16648 to run task
+[2024-05-27T23:24:37.786+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_install_dbt_utils', 'manual__2024-05-27T21:49:08.726117+00:00', '--job-id', '103', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmp1zz7e7vi']
+[2024-05-27T23:24:37.787+0000] {standard_task_runner.py:83} INFO - Job 103: Subtask ti_install_dbt_utils
+[2024-05-27T23:24:37.833+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_install_dbt_utils manual__2024-05-27T21:49:08.726117+00:00 [running]> on host a64b6410e10e
+[2024-05-27T23:24:37.894+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_install_dbt_utils
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-27T21:49:08.726117+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-27T21:49:08.726117+00:00
+[2024-05-27T23:24:37.910+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-27T23:24:37.910+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 430, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 303, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 344, in _run_image_with_mounts
+    tty=self.tty,
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 429, in create_container
+    stop_timeout, runtime
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/api/container.py", line 434, in create_container_config
+    return ContainerConfig(self._version, *args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/types/containers.py", line 705, in __init__
+    command = split_command(command)
+  File "/home/airflow/.local/lib/python3.7/site-packages/docker/utils/utils.py", line 475, in split_command
+    return shlex.split(command)
+  File "/usr/local/lib/python3.7/shlex.py", line 310, in split
+    return list(lex)
+  File "/usr/local/lib/python3.7/shlex.py", line 299, in __next__
+    token = self.get_token()
+  File "/usr/local/lib/python3.7/shlex.py", line 109, in get_token
+    raw = self.read_token()
+  File "/usr/local/lib/python3.7/shlex.py", line 191, in read_token
+    raise ValueError("No closing quotation")
+ValueError: No closing quotation
+[2024-05-27T23:24:37.919+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=franko_lookup_ingest, task_id=ti_install_dbt_utils, execution_date=20240527T214908, start_date=20240527T232437, end_date=20240527T232437
+[2024-05-27T23:24:37.929+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 103 for task ti_install_dbt_utils (No closing quotation; 16648)
+[2024-05-27T23:24:37.957+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2024-05-27T23:24:37.980+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check

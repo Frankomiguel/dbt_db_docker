@@ -1,0 +1,91 @@
+[2024-05-27T23:42:45.752+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_target_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T23:42:45.772+0000] {taskinstance.py:1087} INFO - Dependencies all met for <TaskInstance: franko_lookup_ingest.ti_load_target_data manual__2024-05-27T21:49:08.726117+00:00 [queued]>
+[2024-05-27T23:42:45.773+0000] {taskinstance.py:1283} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T23:42:45.773+0000] {taskinstance.py:1284} INFO - Starting attempt 4 of 4
+[2024-05-27T23:42:45.773+0000] {taskinstance.py:1285} INFO - 
+--------------------------------------------------------------------------------
+[2024-05-27T23:42:45.804+0000] {taskinstance.py:1304} INFO - Executing <Task(DockerOperator): ti_load_target_data> on 2024-05-27 21:49:08.726117+00:00
+[2024-05-27T23:42:45.814+0000] {standard_task_runner.py:55} INFO - Started process 298 to run task
+[2024-05-27T23:42:45.820+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'franko_lookup_ingest', 'ti_load_target_data', 'manual__2024-05-27T21:49:08.726117+00:00', '--job-id', '145', '--raw', '--subdir', 'DAGS_FOLDER/challenge_dag.py', '--cfg-path', '/tmp/tmpbap9h429']
+[2024-05-27T23:42:45.821+0000] {standard_task_runner.py:83} INFO - Job 145: Subtask ti_load_target_data
+[2024-05-27T23:42:45.922+0000] {task_command.py:389} INFO - Running <TaskInstance: franko_lookup_ingest.ti_load_target_data manual__2024-05-27T21:49:08.726117+00:00 [running]> on host a64b6410e10e
+[2024-05-27T23:42:46.051+0000] {taskinstance.py:1513} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=franko_lookup_ingest
+AIRFLOW_CTX_TASK_ID=ti_load_target_data
+AIRFLOW_CTX_EXECUTION_DATE=2024-05-27T21:49:08.726117+00:00
+AIRFLOW_CTX_TRY_NUMBER=4
+AIRFLOW_CTX_DAG_RUN_ID=manual__2024-05-27T21:49:08.726117+00:00
+[2024-05-27T23:42:46.091+0000] {docker.py:284} INFO - Starting docker container from image my_dbt
+[2024-05-27T23:42:49.896+0000] {docker.py:354} INFO - [0m23:42:49  Running with dbt=1.5.11
+[2024-05-27T23:42:50.054+0000] {docker.py:354} INFO - [0m23:42:50  Registered adapter: postgres=1.5.11
+[2024-05-27T23:42:50.213+0000] {docker.py:354} INFO - [0m23:42:50  Found 5 models, 4 tests, 0 snapshots, 0 analyses, 422 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[2024-05-27T23:42:50.215+0000] {docker.py:354} INFO - [0m23:42:50
+[2024-05-27T23:42:50.327+0000] {docker.py:354} INFO - [0m23:42:50  Concurrency: 4 threads (target='dev')
+[2024-05-27T23:42:50.327+0000] {docker.py:354} INFO - [0m23:42:50
+[2024-05-27T23:42:50.330+0000] {docker.py:354} INFO - [0m23:42:50  1 of 1 START sql table model dev.golden_data ................................... [RUN]
+[2024-05-27T23:42:50.632+0000] {docker.py:354} INFO - [0m23:42:50  1 of 1 ERROR creating sql table model dev.golden_data .......................... [[31mERROR[0m in 0.30s]
+[2024-05-27T23:42:50.739+0000] {docker.py:354} INFO - [0m23:42:50
+[2024-05-27T23:42:50.740+0000] {docker.py:354} INFO - [0m23:42:50  Finished running 1 table model in 0 hours 0 minutes and 0.52 seconds (0.52s).
+[2024-05-27T23:42:50.751+0000] {docker.py:354} INFO - [0m23:42:50
+[2024-05-27T23:42:50.751+0000] {docker.py:354} INFO - [0m23:42:50  [31mCompleted with 1 error and 0 warnings:[0m
+[2024-05-27T23:42:50.752+0000] {docker.py:354} INFO - [0m23:42:50
+[2024-05-27T23:42:50.752+0000] {docker.py:354} INFO - [0m23:42:50  [33mDatabase Error in model golden_data (models/golden/golden_data.sql)[0m
+[2024-05-27T23:42:50.753+0000] {docker.py:354} INFO - [0m23:42:50    column "ovid" does not exist
+[2024-05-27T23:42:50.753+0000] {docker.py:354} INFO - [0m23:42:50    LINE 18:     transf_province_state , ovid
+[2024-05-27T23:42:50.754+0000] {docker.py:354} INFO - [0m23:42:50                                         ^
+[2024-05-27T23:42:50.754+0000] {docker.py:354} INFO - [0m23:42:50    compiled Code at target/run/franko/models/golden/golden_data.sql
+[2024-05-27T23:42:50.755+0000] {docker.py:354} INFO - [0m23:42:50
+[2024-05-27T23:42:50.755+0000] {docker.py:354} INFO - [0m23:42:50  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2024-05-27T23:42:51.798+0000] {taskinstance.py:1772} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 430, in execute
+    return self._run_image()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 303, in _run_image
+    return self._run_image_with_mounts(self.mounts, add_tmp_variable=False)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/docker/operators/docker.py", line 359, in _run_image_with_mounts
+    raise AirflowException(f"Docker container failed: {repr(result)} lines {joined_log_lines}")
+airflow.exceptions.AirflowException: Docker container failed: {'StatusCode': 1} lines [0m23:42:49  Running with dbt=1.5.11
+[0m23:42:50  Registered adapter: postgres=1.5.11
+[0m23:42:50  Found 5 models, 4 tests, 0 snapshots, 0 analyses, 422 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[0m23:42:50
+[0m23:42:50  Concurrency: 4 threads (target='dev')
+[0m23:42:50
+[0m23:42:50  1 of 1 START sql table model dev.golden_data ................................... [RUN]
+[0m23:42:50  1 of 1 ERROR creating sql table model dev.golden_data .......................... [[31mERROR[0m in 0.30s]
+[0m23:42:50
+[0m23:42:50  Finished running 1 table model in 0 hours 0 minutes and 0.52 seconds (0.52s).
+[0m23:42:50
+[0m23:42:50  [31mCompleted with 1 error and 0 warnings:[0m
+[0m23:42:50
+[0m23:42:50  [33mDatabase Error in model golden_data (models/golden/golden_data.sql)[0m
+[0m23:42:50    column "ovid" does not exist
+[0m23:42:50    LINE 18:     transf_province_state , ovid
+[0m23:42:50                                         ^
+[0m23:42:50    compiled Code at target/run/franko/models/golden/golden_data.sql
+[0m23:42:50
+[0m23:42:50  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1
+[2024-05-27T23:42:51.801+0000] {taskinstance.py:1327} INFO - Marking task as FAILED. dag_id=franko_lookup_ingest, task_id=ti_load_target_data, execution_date=20240527T214908, start_date=20240527T234245, end_date=20240527T234251
+[2024-05-27T23:42:51.812+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 145 for task ti_load_target_data (Docker container failed: {'StatusCode': 1} lines [0m23:42:49  Running with dbt=1.5.11
+[0m23:42:50  Registered adapter: postgres=1.5.11
+[0m23:42:50  Found 5 models, 4 tests, 0 snapshots, 0 analyses, 422 macros, 0 operations, 1 seed file, 1 source, 0 exposures, 0 metrics, 0 groups
+[0m23:42:50
+[0m23:42:50  Concurrency: 4 threads (target='dev')
+[0m23:42:50
+[0m23:42:50  1 of 1 START sql table model dev.golden_data ................................... [RUN]
+[0m23:42:50  1 of 1 ERROR creating sql table model dev.golden_data .......................... [[31mERROR[0m in 0.30s]
+[0m23:42:50
+[0m23:42:50  Finished running 1 table model in 0 hours 0 minutes and 0.52 seconds (0.52s).
+[0m23:42:50
+[0m23:42:50  [31mCompleted with 1 error and 0 warnings:[0m
+[0m23:42:50
+[0m23:42:50  [33mDatabase Error in model golden_data (models/golden/golden_data.sql)[0m
+[0m23:42:50    column "ovid" does not exist
+[0m23:42:50    LINE 18:     transf_province_state , ovid
+[0m23:42:50                                         ^
+[0m23:42:50    compiled Code at target/run/franko/models/golden/golden_data.sql
+[0m23:42:50
+[0m23:42:50  Done. PASS=0 WARN=0 ERROR=1 SKIP=0 TOTAL=1; 298)
+[2024-05-27T23:42:51.852+0000] {local_task_job.py:159} INFO - Task exited with return code 1
+[2024-05-27T23:42:51.880+0000] {taskinstance.py:2582} INFO - 0 downstream tasks scheduled from follow-on schedule check
