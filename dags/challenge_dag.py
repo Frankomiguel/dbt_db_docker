@@ -4,7 +4,7 @@ NOTE:
     Run this in your local for use docker:
         sudo chmod o+rw /var/run/docker.sock
 
-DAG for approve Loopstudio challengue using DBT, Postgres & Airflow, steps:
+DAG for approve challengue using DBT, Postgres & Airflow, steps:
 
     Steps 1:
         - Install dbt utils for use unpivot
@@ -36,7 +36,7 @@ from airflow.providers.docker.operators.docker import DockerOperator
 log = logging.getLogger(__name__)
 
 PATH_TO_PYTHON_BINARY = sys.executable
-
+LOCAL_PATH = '/home/franko'
 
 with DAG(
     dag_id="franko_lookup_ingest",
@@ -53,7 +53,7 @@ with DAG(
         api_version='auto',
         docker_url='unix://var/run/docker.sock',
         command='sh -c "dbt deps --project-dir /usr/app/projects/franko"',
-        mounts=[Mount(source='/home/franko/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
+        mounts=[Mount(source=f'{LOCAL_PATH}/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
         mount_tmp_dir=False,
         network_mode='container:frankomiguel-challenge_my_dbt'
     )
@@ -63,7 +63,7 @@ with DAG(
         api_version='auto',
         docker_url='unix://var/run/docker.sock',
         command='sh -c "cd projects && dbt seed --project-dir /usr/app/projects/franko --target dev --profiles-dir /usr/app" --threads 4',
-        mounts=[Mount(source='/home/franko/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
+        mounts=[Mount(source=f'{LOCAL_PATH}/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
         mount_tmp_dir=False,
         network_mode='container:frankomiguel-challenge_my_dbt'
     )
@@ -74,7 +74,7 @@ with DAG(
         api_version='auto',
         docker_url='unix://var/run/docker.sock',
         command='sh -c "dbt run --select silver --project-dir /usr/app/projects/franko --target dev --profiles-dir /usr/app"',
-        mounts=[Mount(source='/home/franko/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
+        mounts=[Mount(source=f'{LOCAL_PATH}/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
         mount_tmp_dir=False,
         network_mode='container:frankomiguel-challenge_my_dbt'
     )
@@ -85,7 +85,7 @@ with DAG(
         api_version='auto',
         docker_url='unix://var/run/docker.sock',
         command='sh -c "dbt test --select silver --project-dir /usr/app/projects/franko --target dev --profiles-dir /usr/app"',
-        mounts=[Mount(source='/home/franko/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
+        mounts=[Mount(source=f'{LOCAL_PATH}/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
         mount_tmp_dir=False,
         network_mode='container:frankomiguel-challenge_my_dbt'
     )
@@ -96,7 +96,7 @@ with DAG(
         api_version='auto',
         docker_url='unix://var/run/docker.sock',
         command='sh -c "dbt run --select golden --project-dir /usr/app/projects/franko --target dev --profiles-dir /usr/app"',
-        mounts=[Mount(source='/home/franko/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
+        mounts=[Mount(source=f'{LOCAL_PATH}/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
         mount_tmp_dir=False,
         network_mode='container:frankomiguel-challenge_my_dbt'
     )
@@ -107,7 +107,7 @@ with DAG(
         api_version='auto',
         docker_url='unix://var/run/docker.sock',
         command='sh -c "dbt docs generate --no-compile --project-dir /usr/app/projects/franko --target dev --profiles-dir /usr/app"',
-        mounts=[Mount(source='/home/franko/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
+        mounts=[Mount(source=f'{LOCAL_PATH}/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
         mount_tmp_dir=False,
         network_mode='container:frankomiguel-challenge_my_dbt'
     )
@@ -118,7 +118,7 @@ with DAG(
         api_version='auto',
         docker_url='unix://var/run/docker.sock',
         command='sh -c "dbt docs serve  --port 8085 --project-dir /usr/app/projects/franko --target dev --profiles-dir /usr/app"',
-        mounts=[Mount(source='/home/franko/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
+        mounts=[Mount(source=f'{LOCAL_PATH}/Documents/repos/Frankomiguel-challenge/dbt_directory',target='/usr/app',type='bind')],
         mount_tmp_dir=False,
         network_mode='container:frankomiguel-challenge_my_dbt'
     )
